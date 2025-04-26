@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scan to Pay</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+        }
+        img {
+            margin-top: 30px;
+            width: 300px;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 10px 30px;
+            background-color: green;
+            color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Scan to Pay</h2>
+    <img src="img_s/sujatascanner.jpeg" alt="QR Code">
+    
+    <form action="confirm_payment.php" method="POST">
+        <input type="hidden" name="room_id" id="room_id">
+        <button class="btn" type="submit">Confirm Payment</button>
+    </form>
+
+    <script>
+        // Get room_id from URL and put it into the hidden input field
+        const urlParams = new URLSearchParams(window.location.search);
+        const roomId = urlParams.get('room_id');
+        document.getElementById('room_id').value = roomId;
+    </script>
+</body>
+</html>
